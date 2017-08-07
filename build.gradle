@@ -1,0 +1,46 @@
+group 'org.training.jar'
+version '1.0'
+
+apply plugin: 'java'
+
+// Подключаем Docker-plugin
+buildscript {
+    repositories { mavenCentral() }
+    dependencies { classpath('org.sglahn:gradle-dockerfile-plugin:0.4') }
+}
+apply plugin: 'dockerfile'
+//end docker-plugin
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    vertxVersion = '3.4.2'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'io.vertx', name: 'vertx-core', version: vertxVersion
+    compile group: 'io.vertx', name: 'vertx-web', version: vertxVersion
+    compile group: 'io.vertx', name: 'vertx-ignite', version: vertxVersion
+    compile group: 'io.vertx', name: 'vertx-config', version: vertxVersion
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.training.jar.MainApp'
+    }
+}
+
+// Объявляем настройки создания образа
+// Все остальное прописано в Dockerfile
+docker {
+    imageVersion = version
+    imageName = 'apache-ignite-vertx-test'
+    dockerFile = 'src/main/docker/Dockerfile'
+    tags = [version, 'latest']
+}

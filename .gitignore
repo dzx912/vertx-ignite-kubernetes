@@ -1,0 +1,8 @@
+*.iml
+target/
+.idea/
+
+# Запрещаем все артефакты gradle
+.gradle/
+gradle/
+build/
