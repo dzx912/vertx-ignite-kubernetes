@@ -5,4 +5,6 @@ chmod 755 /home/jboss
 /usr/local/s2i/assemble
 rc=$?
 
+cp -f /tmp/src/config/ignite.xml /deployments
+
 exit $rc
