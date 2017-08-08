@@ -27,7 +27,6 @@ dependencies {
     compile group: 'io.vertx', name: 'vertx-core', version: vertxVersion
     compile group: 'io.vertx', name: 'vertx-web', version: vertxVersion
     compile group: 'io.vertx', name: 'vertx-ignite', version: vertxVersion
-    compile group: 'io.vertx', name: 'vertx-config', version: vertxVersion
 }
 
 jar {
