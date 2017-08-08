@@ -11,7 +11,7 @@
             <bean class="org.apache.ignite.spi.discovery.tcp.TcpDiscoverySpi">
                 <property name="ipFinder">
                     <bean class="org.apache.ignite.spi.discovery.tcp.ipfinder.kubernetes.TcpDiscoveryKubernetesIpFinder">
-                      <property name="setServiceName" value="sbt-ignite-test01" />
+                      <property name="ыerviceName" value="sbt-ignite-test01" />
                     </bean>
                 </property>
             </bean>
