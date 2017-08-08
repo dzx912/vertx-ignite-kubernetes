@@ -2,7 +2,7 @@
 
 chmod 755 /home/jboss
 
-/usr/libexec/s2i/assemble
+/usr/local/s2i/assemble
 rc=$?
 
 exit $rc
