@@ -4,8 +4,6 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.EventBus;
 import org.training.vertx.comman.Endpoint;
 
-import java.time.LocalDateTime;
-
 /**
  * @author Anton Lenok <AILenok.SBT@sberbank.ru>
  * @since 26.04.17.
@@ -20,7 +18,13 @@ public class ModelVerticle extends AbstractVerticle {
         eventBus = vertx.eventBus();
 
         eventBus.consumer(Endpoint.EB_BROADCAST, message -> {
-            System.out.println("Model catch broadcast message: " + message.body());
+            System.out.println("Model catch request for timestamp: " + message.body());
+            String response = String.valueOf(System.currentTimeMillis());
+            System.out.println("Timestamp generated: " + response);
+            message.reply(response);
+            System.out.println("Success replied with generated timestamp: " + response);
         });
+
+        System.out.println("Model verticle started!");
     }
 }

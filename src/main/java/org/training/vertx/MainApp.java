@@ -4,7 +4,6 @@ import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 import io.vertx.spi.cluster.ignite.IgniteClusterManager;
 import org.training.vertx.verticle.HttpServerVerticle;
-import org.training.vertx.verticle.ModelVerticle;
 
 import java.io.File;
 import java.net.URL;
@@ -40,8 +39,6 @@ public class MainApp {
         // Подключаем verticle к системе
         System.out.println("Deploy Verticles");
         vertx.deployVerticle(new HttpServerVerticle());
-        vertx.deployVerticle(new ModelVerticle());
-
     }
 
     private static IgniteClusterManager getIgniteClusterManager() {
