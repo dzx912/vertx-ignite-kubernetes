@@ -61,5 +61,7 @@ public class HttpServerVerticle extends AbstractVerticle {
         System.out.println("HttpServerVerticle::broadcast - request time");
 
         eventBus.publish(Endpoint.EB_BROADCAST, "Send message broadcast");
+
+        response.end("Message send");
     }
 }
