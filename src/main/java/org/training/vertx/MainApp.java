@@ -20,7 +20,9 @@ public class MainApp {
     public static void main(String args[]) {
         VertxOptions options = new VertxOptions()
                 .setClustered(true)
-                .setClusterManager(getIgniteClusterManager());
+                .setClusterManager(getIgniteClusterManager())
+                .setClusterPublicHost("testClusteredEventBusHost")
+                .setClusterPublicPort(47600);
 
         Vertx.clusteredVertx(options, vertxAsyncResult -> {
             if (vertxAsyncResult.succeeded()) {

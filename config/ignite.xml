@@ -27,6 +27,8 @@
                 </constructor-arg>
             </bean>
         </property>
+
+        <property name="metricsLogFrequency" value="0"/>
     </bean>
 
 </beans>
